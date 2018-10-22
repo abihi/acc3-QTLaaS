@@ -1,0 +1,15 @@
+#cloud-config
+
+apt_update: true
+apt_upgrade: true
+packages:
+ - python-minimal
+ - build-essential
+byobu_default: system
+
+ssh_authorized_keys:
+ - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCxbCVaJfg9RegyGNDWfSHleaAC9NxDP0EziC/bsjYQTuiqJK6hllam1HClFFMpzoTzIsjBXQsE5EyVHNWc0PI5mKHCImo4s07NVxvtI8WtWCO5OE0vujeUG6URAG1gx1CWXv/XwPfVfnk0HJ2sLwptlwUEbXrZbNqLTiMpZd3kK8cSx4BefNtmEKxXC3bw0hqzPsLZrn/XdsZOWc51sEft8x1xIv+WOhFz14j6dU5D0d161uWZnhDMnzIhR2CIRlSbhIw3MzgQ02n6VOLUcqSSubkGNdJY+dkKTBcP0uRdQMvoMoCywIbhUSAIFcHQYTieNCnSXD6M5WXGvdZRHXG9 ubuntu@acc3-ansible
+
+runcmd:
+ - echo "export PATH=$PATH:/usr/games" >> /home/ubuntu/.bashrc
+ - source /home/ubuntu/.bashrc
