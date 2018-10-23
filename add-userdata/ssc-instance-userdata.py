@@ -13,7 +13,7 @@ private_net = "SNIC 2018/10-30 Internal IPv4 Network"
 floating_ip_pool_name = "Public External IPv4 network"
 floating_ip = None
 image_name = "Ubuntu 16.04 LTS (Xenial Xerus) - latest"
-snapshot_name = "IMPORTANT-acc3-ansible-snapshot"
+snapshot_name = "IMPORTANT-acc3-ans-snap"
 
 loader = loading.get_plugin_loader('password')
 
