@@ -1,0 +1,89 @@
+#cloud-config
+
+apt_update: true
+apt_upgrade: true
+packages:
+ - build-essential
+byobu_default: system
+
+ssh_authorized_keys:
+ - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDtyBWCaDz+Kg7ouHI9O5KW9CM8AX+gbUrQQXSl6bgSTsG7HuF2wBOUmL1NdXVFUfPppbnx53safsMLiydDAjlmiQWIMaZwXo7ZFPfQjBlfPS9Cn9elx/yBCQxB+EzuaSuU4jjNvu6OnONM6aSr7kCuhxomVboKhlWSPtVkhDJSYw+p2AZgppwCjKU/C3Md5Uc9PRQpLg1DGAktBFU8N4hDq6dMgij5DOMg5hf+j9If89eAilV7RYCCB/p/DZSScXCatPF9F2xMwQ4EUf/iLxXFaBvmjZcl/hymQ17P2BPQxin9ZV7iYsopz1oqzNXUBxaVHO1Y2pr3anJsc30qwEFn ubuntu@acc3-flask
+
+ssh_keys:
+  rsa_private: |
+    -----BEGIN RSA PRIVATE KEY-----
+    MIIEpAIBAAKCAQEAsk9izzlbTbr2KCeK/yovWDChOEM7HE0FWudyFw/PBRgWaz2m
+    3UCOvsT8MvnYae4kVmEEi+GGvtteDDnmhLn+20hN5HLjGrnaEHHSVVFfUNzn82di
+    ik4Zqzh23Z3RLOHL2gtJaxfIdikjde7VM9yKg/KAQEY3kDvoUpoFZDL1vd+TDZ38
+    vuR11ZQirVqzv6DBAyiO1QlhD6OfSUDRYQD7+rZNtcjvAa404rm28kPiySUs82xI
+    ZDbnYv6qTOrhIhcEGXorNtrxPJygQWCowH1HHOwHy5Ab3iNa9WfeB0jhVhqs5gPZ
+    kYMb3e+SuKeK+kQGAbB+oytloDc6LavJ2yU3cwIDAQABAoIBAQCqp2XXFHr4+t3K
+    coYKTlJ/ohM6qMWzAVgFt4su3TdyFaqnOpswGDBGDnudQhfI0l2+uh3CzrbKhWMO
+    an/gOa7cKeg6o2YN1yAIKxd2BmomFzZ7c1ARNExG3cSNuBRRU01pwvGiaGG4DQle
+    PpWYjBOZ0wbB/TICfgOMwtI0Ir2k2PN+TPrAdpHlF4PYdKujJYzxo14u3qR7ssyI
+    RzhL7l+KPrALjyiT5uZqlUZDpaoZhnAKuCRqsN0OMOrvSidFyTKAUAnKbhtqkNhn
+    HkUhdddeB9vBMpZ4uKLlXw3zZeSX0BN2FL4m0eP+wHTTRyusoaGQ8jr2mBM0yxA4
+    KI5Mhd3hAoGBANkEOcPCmktOQUpsLZXslthzOI07LfrogZ+JG1MX6m4hKAwDdXlj
+    9iiB4Aq94QDS5N9Ek5kRyNgCLKlHrY7bPgIq8TviifXMa7FC20aEJlNp+jqsyg37
+    u9P1+pwf+bwDYJ//uev0gPFFJzJIikQ2qQY16ySYZNuah/OR0uD3mtZRAoGBANJX
+    MrXhOGXuZQHkvvMwv2v972Dhlb1dFpg0RcRXvvK9jVEUGZ/6Igq/c3t12UYhwdJL
+    4hA9kIEdisIFy1QhRaVlNWp/P9hINl/PM8IPj/Q53Rrrm3trtjDAvHG1JAml64hZ
+    pEDmoiKP2ccRGCzA/wWt1qYz0okKA5PuQrcM0cyDAoGBAJz8+pCLiTRqwr6ErSFk
+    iebAyysXoXZ9la+D7nlYtqS+ZYrzQZrz3hGFij4bB9ahuSFuKVu0ytbAE/DNQlcy
+    cJP+3o2UnnpqS4lqtNc5J8R1yKeDcZNWBJUbvxQL6YvB4bc8thFjyZc/kFBGu4cH
+    B5TPkm/hsixOiISBe8x0MdVRAoGASAIaFjH4QM0QP0m0JUU3Ax136c7QmHdZ2Nls
+    WP9BG5DQ5EThUOcs6EkKm+WIcH32AKyBw9WPtuQKMMoTBcYuNaUkWEUf8kcmdj5V
+    FcaGHbIBg8nM/L+vK5mP6c19fOAUdiVaGe3a68IbaA7uG8QmiictKNDs7oVDHE2h
+    AVGeMUkCgYAF5fmgtoJ40V9IPSkggvxNHn3HRY8tbfsMJBXaik4OxhAfTQ+waQ2a
+    aIHaeMQWdSP1o+CYYT4RDP0JCKhyF9CNchEXFWEI+noo88+eBfx4tPB3lMxqG1LP
+    b3NAOBtwNKCbx0vGH2pdTzjqvQEfc22jld0YXLexRbNjk7/R58L7uA==
+    -----END RSA PRIVATE KEY-----
+
+  rsa_public: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCyT2LPOVtNuvYoJ4r/Ki9YMKE4QzscTQVa53IXD88FGBZrPabdQI6+xPwy+dhp7iRWYQSL4Ya+214MOeaEuf7bSE3kcuMaudoQcdJVUV9Q3OfzZ2KKThmrOHbdndEs4cvaC0lrF8h2KSN17tUz3IqD8oBARjeQO+hSmgVkMvW935MNnfy+5HXVlCKtWrO/oMEDKI7VCWEPo59JQNFhAPv6tk21yO8BrjTiubbyQ+LJJSzzbEhkNudi/qpM6uEiFwQZeis22vE8nKBBYKjAfUcc7AfLkBveI1r1Z94HSOFWGqzmA9mRgxvd75K4p4r6RAYBsH6jK2WgNzotq8nbJTdz Generated-by-Nova
+
+runcmd:
+ - export OS_AUTH_URL=https://uppmax.cloud.snic.se:5000/v3
+
+ - export OS_PROJECT_ID=2344cddf33a1412b846290a9fb90b762
+ - export OS_PROJECT_NAME="SNIC 2018/10-30"
+ - export OS_USER_DOMAIN_NAME="snic"
+ - export OS_PROJECT_DOMAIN_NAME="snic"
+ - if [ -z "$OS_USER_DOMAIN_NAME" ]; then unset OS_USER_DOMAIN_NAME; fi
+
+ - unset OS_TENANT_ID
+ - unset OS_TENANT_NAME
+
+ - export OS_USERNAME="s11856"
+
+ - export OS_PASSWORD="acc3project"
+
+ - export OS_REGION_NAME="UPPMAX"
+ - if [ -z "$OS_REGION_NAME" ]; then unset OS_REGION_NAME; fi
+
+ - export OS_INTERFACE=public
+ - export OS_IDENTITY_API_VERSION=3
+ - echo "export PATH=$PATH:/usr/games" >> /home/ubuntu/.bashrc
+ - source /home/ubuntu/.bashrc
+ - source /home/ubuntu/bihi-openrc.sh
+ - sudo cp /etc/ssh/ssh_host_rsa_key /home/ubuntu/.ssh/id_rsa
+ - sudo cp /etc/ssh/ssh_host_rsa_key.pub /home/ubuntu/.ssh/id_rsa.pub
+ - sudo chown -R ubuntu:ubuntu /home/ubuntu/.ssh
+ - echo StrictHostKeyChecking no | sudo tee -a /etc/ssh/ssh_config
+ - ansibleIPhost=$(openstack server list --name acc3-ansible -c Networks -f value | awk '{ split($5, v, "=");split(v[2],x,","); print x[1], "acc3-ansible"}')
+ - masterIPhost=$(openstack server list --name acc3-master -c Networks -f value | awk '{ split($5, v, "=");split(v[2],x,","); print x[1], "acc3-master"}')
+ - workerIPhost=$(openstack server list --name acc3-worker -c Networks -f value | awk '{ split($5, v, "=");split(v[2],x,","); print x[1], "acc3-worker"}')
+ - echo $ansibleIPhost | sudo tee -a /etc/hosts
+ - echo $masterIPhost | sudo tee -a /etc/hosts
+ - echo $workerIPhost | sudo tee -a /etc/hosts
+ - ansibleIP=$(echo $ansibleIPhost | awk '{split($1, v, " ");print v[1]}')
+ - masterIP=$(echo $masterIPhost | awk '{split($1, v, " ");print v[1]}')
+ - workerIP=$(echo $workerIPhost | awk '{split($1, v, " ");print v[1]}')
+ - echo ansible-node ansible_ssh_host=$ansibleIP | sudo tee -a /etc/ansible/hosts
+ - echo sparkmaster  ansible_ssh_host=$masterIP  | sudo tee -a /etc/ansible/hosts
+ - echo sparkworker1 ansible_ssh_host=$workerIP  | sudo tee -a /etc/ansible/hosts
+ - echo [configNode] | sudo tee -a /etc/ansible/hosts
+ - echo ansible-node ansible_connection=local ansible_user=ubuntu | sudo tee -a /etc/ansible/hosts
+ - echo [sparkmaster] | sudo tee -a /etc/ansible/hosts
+ - echo sparkmaster ansible_connection=ssh ansible_user=ubuntu | sudo tee -a /etc/ansible/hosts
+ - echo [sparkworker] | sudo tee -a /etc/ansible/hosts
+ - echo sparkworker1 ansible_connection=ssh ansible_user=ubuntu | sudo tee -a /etc/ansible/hosts

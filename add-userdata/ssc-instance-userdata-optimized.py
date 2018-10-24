@@ -13,10 +13,9 @@ private_net = "SNIC 2018/10-30 Internal IPv4 Network"
 floating_ip_pool_name = "Public External IPv4 network"
 floating_ip = None
 image_name = "Ubuntu 16.04 LTS (Xenial Xerus) - latest"
-snapshot_name = "IMPORTANT-acc3-ansible-snapshot"
-#snapshot_name_ansible = "IMPORTANT-acc3-ansible-full"
-#snapshot_name_master  = "IMPORTANT-acc3-master-full"
-#snapshot_name_worker  = "IMPORTANT-acc3-worker-full"
+snapshot_name_ansible = "IMPORTANT-acc3-ansible-full"
+snapshot_name_master  = "IMPORTANT-acc3-master-full"
+snapshot_name_worker  = "IMPORTANT-acc3-worker-full"
 
 loader = loading.get_plugin_loader('password')
 
@@ -38,11 +37,9 @@ if floating_ip.ip != None:
 else:
     print "floating_ip creation failed."
 
-image = nova.glance.find_image(image_name)
-snapshot = nova.glance.find_image(snapshot_name)
-#snapshot_ansible = nova.glance.find_image(snapshot_name_ansible)
-#snapshot_master = nova.glance.find_image(snapshot_name_master)
-#snapshot_worker = nova.glance.find_image(snapshot_name_worker)
+snapshot_ansible = nova.glance.find_image(snapshot_name_ansible)
+snapshot_master = nova.glance.find_image(snapshot_name_master)
+snapshot_worker = nova.glance.find_image(snapshot_name_worker)
 
 flavor = nova.flavors.find(name=flavor)
 
@@ -55,9 +52,9 @@ else:
 #print("Path at terminal when executing this file")
 #print(os.getcwd() + "\n")
 
-cfg_file_path_ansible = os.getcwd()+'/cloud-cfg-ansible.txt'
-cfg_file_path_master = os.getcwd()+'/cloud-cfg-master.txt'
-cfg_file_path_worker = os.getcwd()+'/cloud-cfg-worker.txt'
+cfg_file_path_ansible = os.getcwd()+'/cloud-cfg-ansible-optimized.txt'
+cfg_file_path_master = os.getcwd()+'/cloud-cfg-master-optimized.txt'
+cfg_file_path_worker = os.getcwd()+'/cloud-cfg-worker-optimized.txt'
 
 if os.path.isfile(cfg_file_path_ansible):
     userdata_ansible = open(cfg_file_path_ansible)
@@ -76,12 +73,10 @@ secgroups_master = ['default', 'the_securitygroup']
 secgroups = ['default']
 
 print "Creating instance master ... "
-instance_master = nova.servers.create(name="acc3-master", image=image, flavor=flavor, userdata=userdata_master, nics=nics,security_groups=secgroups_master)
-#instance_master = nova.servers.create(name="acc3-master", image=snapshot_master, flavor=flavor, userdata=userdata_master, nics=nics,security_groups=secgroups_master)
+instance_master = nova.servers.create(name="acc3-master", image=snapshot_master, flavor=flavor, userdata=userdata_master, nics=nics,security_groups=secgroups_master)
 inst_status_master = instance_master.status
 print "Creating instance worker ... "
-instance_worker = nova.servers.create(name="acc3-worker", image=image, flavor=flavor, userdata=userdata_worker, nics=nics,security_groups=secgroups)
-#instance_worker = nova.servers.create(name="acc3-worker", image=snapshot_worker, flavor=flavor, userdata=userdata_worker, nics=nics,security_groups=secgroups)
+instance_worker = nova.servers.create(name="acc3-worker", image=snapshot_worker, flavor=flavor, userdata=userdata_worker, nics=nics,security_groups=secgroups)
 inst_status_worker = instance_worker.status
 print "waiting for 5 seconds.. "
 time.sleep(5)
@@ -103,8 +98,7 @@ if floating_ip.ip != None:
 print "Instance: "+ instance_worker.name +" is in "+ inst_status_worker +" state"
 
 print "Creating instance ansible ... "
-instance_ansible = nova.servers.create(name="acc3-ansible", image=snapshot, flavor=flavor, userdata=userdata_ansible, nics=nics,security_groups=secgroups)
-#instance_ansible = nova.servers.create(name="acc3-ansible", image=snapshot_ansible, flavor=flavor, userdata=userdata_ansible, nics=nics,security_groups=secgroups)
+instance_ansible = nova.servers.create(name="acc3-ansible", image=snapshot_ansible, flavor=flavor, userdata=userdata_ansible, nics=nics,security_groups=secgroups)
 inst_status_ansible = instance_ansible.status
 print "waiting for 5 seconds.. "
 time.sleep(5)
