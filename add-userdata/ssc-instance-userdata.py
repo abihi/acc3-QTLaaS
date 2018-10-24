@@ -34,7 +34,7 @@ print "user authorization completed."
 
 floating_ip = nova.floating_ips.create(nova.floating_ip_pools.list()[0].name)
 if floating_ip.ip != None:
-    print "floating_ip creation completed."
+    print "floating_ip creation completed: " + floating_ip.ip
 else:
     print "floating_ip creation failed."
 
@@ -97,7 +97,7 @@ while inst_status_master == 'BUILD' or inst_status_worker == 'BUILD':
 
 print "Instance: "+ instance_master.name +" is in "+ inst_status_master +" state"
 if floating_ip.ip != None:
-    instance.add_floating_ip(floating_ip)
+    instance_master.add_floating_ip(floating_ip)
     print "Added floation ip: "+ floating_ip.ip +" to "+ instance_master.name
 
 print "Instance: "+ instance_worker.name +" is in "+ inst_status_worker +" state"
