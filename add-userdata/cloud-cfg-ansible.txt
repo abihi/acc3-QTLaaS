@@ -71,3 +71,15 @@ runcmd:
  - echo $ansibleIPhost | sudo tee -a /etc/hosts
  - echo $masterIPhost | sudo tee -a /etc/hosts
  - echo $workerIPhost | sudo tee -a /etc/hosts
+ - ansibleIP=$(echo $ansibleIPhost | awk '{split($1, v, " ");print v[1]}')
+ - masterIP=$(echo $masterIPhost | awk '{split($1, v, " ");print v[1]}')
+ - workerIP=$(echo $workerIPhost | awk '{split($1, v, " ");print v[1]}')
+ - echo ansible-node ansible_ssh_host=$ansibleIP | sudo tee -a /etc/ansible/hosts
+ - echo sparkmaster  ansible_ssh_host=$masterIP  | sudo tee -a /etc/ansible/hosts
+ - echo sparkworker1 ansible_ssh_host=@workerIP  | sudo tee -a /etc/ansible/hosts
+ - echo [configNode] | sudo tee -a /etc/ansible/hosts
+ - echo ansible-node ansible_connection=local ansible_user=ubuntu | sudo tee -a /etc/ansible/hosts
+ - echo [sparkmaster] | sudo tee -a /etc/ansible/hosts
+ - echo sparkmaster ansible_connection=ssh ansible_user=ubuntu | sudo tee -a /etc/ansible/hosts
+ - echo [sparkworker] | sudo tee -a /etc/ansible/hosts
+ - echo sparkworker1 ansible_connection=ssh ansible_user=ubuntu | sudo tee -a /etc/ansible/hosts
