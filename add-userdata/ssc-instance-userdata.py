@@ -32,7 +32,8 @@ sess = session.Session(auth=auth)
 nova = client.Client('2.1', session=sess)
 print "user authorization completed."
 
-floating_ip = nova.floating_ips.create(nova.floating_ip_pools.list()[0].name)
+#floating_ip = nova.floating_ips.create(nova.floating_ip_pools.list()[0].name)
+floating_ip = nova.floating_ips.list()[0]
 if floating_ip.ip != None:
     print "floating_ip creation completed: " + floating_ip.ip
 else:
@@ -94,6 +95,8 @@ while inst_status_master == 'BUILD' or inst_status_worker == 'BUILD':
     inst_status_master = instance_master.status
     instance_worker = nova.servers.get(instance_worker.id)
     inst_status_worker = instance_worker.status
+
+time.sleep(20)
 
 print "Instance: "+ instance_master.name +" is in "+ inst_status_master +" state"
 if floating_ip.ip != None:
