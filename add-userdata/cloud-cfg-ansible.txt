@@ -65,6 +65,9 @@ runcmd:
  - echo "export PATH=$PATH:/usr/games" >> /home/ubuntu/.bashrc
  - source /home/ubuntu/.bashrc
  - source /home/ubuntu/bihi-openrc.sh
+ - sudo cp /etc/ssh/ssh_host_rsa_key /home/ubuntu/.ssh/id_rsa
+ - sudo cp /etc/ssh/ssh_host_rsa_key.pub /home/ubuntu/.ssh/id_rsa.pub
+ - sudo chown -R ubuntu:ubuntu /home/ubuntu/.ssh
  - ansibleIPhost=$(openstack server list --name acc3-ansible -c Networks -f value | awk '{ split($5, v, "=");split(v[2],x,","); print x[1], "acc3-ansible"}')
  - masterIPhost=$(openstack server list --name acc3-master -c Networks -f value | awk '{ split($5, v, "=");split(v[2],x,","); print x[1], "acc3-master"}')
  - workerIPhost=$(openstack server list --name acc3-worker -c Networks -f value | awk '{ split($5, v, "=");split(v[2],x,","); print x[1], "acc3-worker"}')
