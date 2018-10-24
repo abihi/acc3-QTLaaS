@@ -29,6 +29,12 @@ sess = session.Session(auth=auth)
 nova = client.Client('2.1', session=sess)
 print "user authorization completed."
 
+floating_ip = nova.floating_ips.create(nova.floating_ip_pools.list()[0].name)
+if floating_ip.ip != None:
+    print "floating_ip creation completed."
+else:
+    print "floating_ip creation failed."
+
 image = nova.glance.find_image(image_name)
 snapshot = nova.glance.find_image(snapshot_name)
 
@@ -82,6 +88,10 @@ while inst_status_master == 'BUILD' or inst_status_worker == 'BUILD':
     inst_status_worker = instance_worker.status
 
 print "Instance: "+ instance_master.name +" is in "+ inst_status_master +" state"
+if floating_ip.ip != None:
+    instance.add_floating_ip(floating_ip)
+    print "Added floation ip: "+ floating_ip.ip +" to "+ instance_master.name
+
 print "Instance: "+ instance_worker.name +" is in "+ inst_status_worker +" state"
 
 print "Creating instance ansible ... "
