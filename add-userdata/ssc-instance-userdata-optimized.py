@@ -73,10 +73,10 @@ secgroups_master = ['default', 'the_securitygroup']
 secgroups = ['default']
 
 print "Creating instance master ... "
-instance_master = nova.servers.create(name="acc3-master", image=snapshot_master, flavor=flavor, userdata=userdata_master, nics=nics,security_groups=secgroups_master)
+instance_master = nova.servers.create(name="acc3-master-op", image=snapshot_master, flavor=flavor, userdata=userdata_master, nics=nics,security_groups=secgroups_master)
 inst_status_master = instance_master.status
 print "Creating instance worker ... "
-instance_worker = nova.servers.create(name="acc3-worker", image=snapshot_worker, flavor=flavor, userdata=userdata_worker, nics=nics,security_groups=secgroups)
+instance_worker = nova.servers.create(name="acc3-worker-op", image=snapshot_worker, flavor=flavor, userdata=userdata_worker, nics=nics,security_groups=secgroups)
 inst_status_worker = instance_worker.status
 print "waiting for 5 seconds.. "
 time.sleep(5)
@@ -98,7 +98,7 @@ if floating_ip.ip != None:
 print "Instance: "+ instance_worker.name +" is in "+ inst_status_worker +" state"
 
 print "Creating instance ansible ... "
-instance_ansible = nova.servers.create(name="acc3-ansible", image=snapshot_ansible, flavor=flavor, userdata=userdata_ansible, nics=nics,security_groups=secgroups)
+instance_ansible = nova.servers.create(name="acc3-ansible-op", image=snapshot_ansible, flavor=flavor, userdata=userdata_ansible, nics=nics,security_groups=secgroups)
 inst_status_ansible = instance_ansible.status
 print "waiting for 5 seconds.. "
 time.sleep(5)
