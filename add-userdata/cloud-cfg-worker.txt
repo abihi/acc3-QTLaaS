@@ -9,7 +9,8 @@ byobu_default: system
 
 ssh_authorized_keys:
  - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDtyBWCaDz+Kg7ouHI9O5KW9CM8AX+gbUrQQXSl6bgSTsG7HuF2wBOUmL1NdXVFUfPppbnx53safsMLiydDAjlmiQWIMaZwXo7ZFPfQjBlfPS9Cn9elx/yBCQxB+EzuaSuU4jjNvu6OnONM6aSr7kCuhxomVboKhlWSPtVkhDJSYw+p2AZgppwCjKU/C3Md5Uc9PRQpLg1DGAktBFU8N4hDq6dMgij5DOMg5hf+j9If89eAilV7RYCCB/p/DZSScXCatPF9F2xMwQ4EUf/iLxXFaBvmjZcl/hymQ17P2BPQxin9ZV7iYsopz1oqzNXUBxaVHO1Y2pr3anJsc30qwEFn ubuntu@acc3-flask
-
+ - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCyT2LPOVtNuvYoJ4r/Ki9YMKE4QzscTQVa53IXD88FGBZrPabdQI6+xPwy+dhp7iRWYQSL4Ya+214MOeaEuf7bSE3kcuMaudoQcdJVUV9Q3OfzZ2KKThmrOHbdndEs4cvaC0lrF8h2KSN17tUz3IqD8oBARjeQO+hSmgVkMvW935MNnfy+5HXVlCKtWrO/oMEDKI7VCWEPo59JQNFhAPv6tk21yO8BrjTiubbyQ+LJJSzzbEhkNudi/qpM6uEiFwQZeis22vE8nKBBYKjAfUcc7AfLkBveI1r1Z94HSOFWGqzmA9mRgxvd75K4p4r6RAYBsH6jK2WgNzotq8nbJTdz Generated-by-Nova
+ 
 runcmd:
  - echo "export PATH=$PATH:/usr/games" >> /home/ubuntu/.bashrc
  - source /home/ubuntu/.bashrc
