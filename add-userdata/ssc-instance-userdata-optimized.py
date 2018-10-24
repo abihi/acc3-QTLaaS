@@ -92,7 +92,7 @@ while inst_status_master == 'BUILD' or inst_status_worker == 'BUILD':
 
 print "Instance: "+ instance_master.name +" is in "+ inst_status_master +" state"
 if floating_ip.ip != None:
-    instance.add_floating_ip(floating_ip)
+    instance_master.add_floating_ip(floating_ip)
     print "Added floation ip: "+ floating_ip.ip +" to "+ instance_master.name
 
 print "Instance: "+ instance_worker.name +" is in "+ inst_status_worker +" state"
