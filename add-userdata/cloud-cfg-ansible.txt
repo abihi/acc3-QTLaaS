@@ -7,68 +7,29 @@ packages:
 byobu_default: system
 
 ssh_authorized_keys:
- - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCxbCVaJfg9RegyGNDWfSHleaAC9NxDP0EziC/bsjYQTuiqJK6hllam1HClFFMpzoTzIsjBXQsE5EyVHNWc0PI5mKHCImo4s07NVxvtI8WtWCO5OE0vujeUG6URAG1gx1CWXv/XwPfVfnk0HJ2sLwptlwUEbXrZbNqLTiMpZd3kK8cSx4BefNtmEKxXC3bw0hqzPsLZrn/XdsZOWc51sEft8x1xIv+WOhFz14j6dU5D0d161uWZnhDMnzIhR2CIRlSbhIw3MzgQ02n6VOLUcqSSubkGNdJY+dkKTBcP0uRdQMvoMoCywIbhUSAIFcHQYTieNCnSXD6M5WXGvdZRHXG9 ubuntu@acc3-ansible
-
-ssh_keys:
-  rsa_private: |
-  -----BEGIN RSA PRIVATE KEY-----
-  MIIEowIBAAKCAQEAsWwlWiX4PUXoMhjQ1n0h5XmgAvTcQz9BM4gv27I2EE7oqiSu
-  oZZWptRwpRRTKc6E8yLIwV0LBORMlRzVnNDyOZihwiJqOLNOzVcb7SPFrVgjuThN
-  L7o3lBulEQBtYMdQll7/18D31X55NBydrC8KbZcFBG162Wzai04jKWXd5CvHEseA
-  XnzbZhCsVwt28NIasz7C2a5/13bGTlnOdbBH7fMdcSL/ljoRc9eI+nVOQ9Hdetbl
-  mZ4QzJ8yIUdgiEZUm4SMNzM4ENNp+lTi1HKkkrm5BjXSWPnZCkwXD9LkXUDL6DKA
-  ssCG4VEgCBXB0GE4njQp0lw+jOVlxr3WUR1xvQIDAQABAoIBABwDo3I0hJnIK/2d
-  BXyYjX2aUrWkzBKiLj1gx428+eRhUUNsP1asUkpNSOwH5Ym4Xi211FUTx+Wh1qXE
-  w8XbCCQoAYKRxIvnZA3wLyymdVQFkr5wMV/T22q7YrjohFy/m+3iWitLANbo/WJJ
-  EmxZkR/0tIoab0dddLSCRfMHbp3UOHFGchVGCpwIAESv2royhxN+kFPlaVUCqCos
-  WMIvs7ZFIt4YOKwnh1WjZtfBiYae2SbI9UJaaXtex2G9SczTsY0Y0fQeNF9iybYZ
-  ZdSE7APrC+VBYKL17auMnbwWPVZ26X5m3JYwRpJzr7g7NqOyVeiKYR2y0BfHrWHa
-  HIqC2QECgYEA1SvcmidCajJF4SEV53jSYjl5bgtxeoKm7N+deopXGjhjoK+XXUOz
-  vsxiFN5QtZgJIyez9PYh9XZmzREVqQOfxEO6Ir/YxEsTvieOeLLr/mQctULg0u43
-  5xGHKHxKW0Rf4IKt+4wn/7qU26Kwi8t5rnNkzRvUev9UJ7dh5SwkShECgYEA1RGY
-  YrWw/qiYUZORoQg/BWnlscOCD9wV4aAaKjIwjzs6wKi63eKATJbENfx3sB6pwpi/
-  4jVBbgUrKl6NEKAfoKay+5n779MHldVFYJVvSEBy3SmfEbcv+BILp2jI6709Jdjk
-  VbmGTRhuCbeONPUlcli396067fDs2OOItcFW4O0CgYEAq4Og+T8BRuSwKNUwBI/H
-  5lQMCaiXY1Tf7dJ1qHTKZERelJjzFo00gB1+BQBiu9lZ8LkvJ7cp14+uYuyOGvDZ
-  iVZc2zy0sisd9W9qSF7dVk9Cce0fa1dUD0yhDMgEI6693awHRE+elzmOL7GUjsXm
-  X6BkyErOCTCKi3IXCAceI6ECgYBEi/CWcRWMF/lI5UzInbqIp1T6J4fESm3PtI42
-  XQc6TTfNm3riv2e/PBHLvHlU88hxjmrM/40ZNBh6/Qgs/RavvHGAeD2RHjcmgQJc
-  3DZ87B8H/8fpDyIjkMqnBRL+pFbzwh9TZOhMDTv5bFAXwXZWnywwRk7bFdNcw3bL
-  4nNs0QKBgAsH9qBM5WuuvBYKVRMVWDAxlAIH2m7+NcMbXsRsjAIWCnWy487SnbX0
-  b9Us8+2EH9UsMwf7RKS3woqQPkdzZekwHyl8w5gzc035+WmkmPaPq8ctDrNx1CAF
-  SLPRUYgHZtWeyk5/4nfw+PQKVG6/1EMbvxd2dG2ESkqOQJln3Auj
-  -----END RSA PRIVATE KEY-----
-
-  rsa_public: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCxbCVaJfg9RegyGNDWfSHleaAC9NxDP0EziC/bsjYQTuiqJK6hllam1HClFFMpzoTzIsjBXQsE5EyVHNWc0PI5mKHCImo4s07NVxvtI8WtWCO5OE0vujeUG6URAG1gx1CWXv/XwPfVfnk0HJ2sLwptlwUEbXrZbNqLTiMpZd3kK8cSx4BefNtmEKxXC3bw0hqzPsLZrn/XdsZOWc51sEft8x1xIv+WOhFz14j6dU5D0d161uWZnhDMnzIhR2CIRlSbhIw3MzgQ02n6VOLUcqSSubkGNdJY+dkKTBcP0uRdQMvoMoCywIbhUSAIFcHQYTieNCnSXD6M5WXGvdZRHXG9 ubuntu@acc3-ansible
-
-write_files:
-  - path: /home/ubuntu/bihi-openrc.sh
-    content: |
-      #!/usr/bin/env bash
-
-      export OS_AUTH_URL=https://uppmax.cloud.snic.se:5000/v3
-
-      export OS_PROJECT_ID=2344cddf33a1412b846290a9fb90b762
-      export OS_PROJECT_NAME="SNIC 2018/10-30"
-      export OS_USER_DOMAIN_NAME="snic"
-      export OS_PROJECT_DOMAIN_NAME="snic"
-      if [ -z "$OS_USER_DOMAIN_NAME" ]; then unset OS_USER_DOMAIN_NAME; fi
-
-      unset OS_TENANT_ID
-      unset OS_TENANT_NAME
-
-      export OS_USERNAME="s11856"
-
-      export OS_PASSWORD="acc3project"
-
-      export OS_REGION_NAME="UPPMAX"
-      if [ -z "$OS_REGION_NAME" ]; then unset OS_REGION_NAME; fi
-
-      export OS_INTERFACE=public
-      export OS_IDENTITY_API_VERSION=3
-
+ - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDtyBWCaDz+Kg7ouHI9O5KW9CM8AX+gbUrQQXSl6bgSTsG7HuF2wBOUmL1NdXVFUfPppbnx53safsMLiydDAjlmiQWIMaZwXo7ZFPfQjBlfPS9Cn9elx/yBCQxB+EzuaSuU4jjNvu6OnONM6aSr7kCuhxomVboKhlWSPtVkhDJSYw+p2AZgppwCjKU/C3Md5Uc9PRQpLg1DGAktBFU8N4hDq6dMgij5DOMg5hf+j9If89eAilV7RYCCB/p/DZSScXCatPF9F2xMwQ4EUf/iLxXFaBvmjZcl/hymQ17P2BPQxin9ZV7iYsopz1oqzNXUBxaVHO1Y2pr3anJsc30qwEFn ubuntu@acc3-flask
 
 runcmd:
+ - export OS_AUTH_URL=https://uppmax.cloud.snic.se:5000/v3
+
+ - export OS_PROJECT_ID=2344cddf33a1412b846290a9fb90b762
+ - export OS_PROJECT_NAME="SNIC 2018/10-30"
+ - export OS_USER_DOMAIN_NAME="snic"
+ - export OS_PROJECT_DOMAIN_NAME="snic"
+ - if [ -z "$OS_USER_DOMAIN_NAME" ]; then unset OS_USER_DOMAIN_NAME; fi
+
+ - unset OS_TENANT_ID
+ - unset OS_TENANT_NAME
+
+ - export OS_USERNAME="s11856"
+
+ - export OS_PASSWORD="acc3project"
+
+ - export OS_REGION_NAME="UPPMAX"
+ - if [ -z "$OS_REGION_NAME" ]; then unset OS_REGION_NAME; fi
+
+ - export OS_INTERFACE=public
+ - export OS_IDENTITY_API_VERSION=3
  - echo "export PATH=$PATH:/usr/games" >> /home/ubuntu/.bashrc
  - source /home/ubuntu/.bashrc
  - source /home/ubuntu/bihi-openrc.sh
