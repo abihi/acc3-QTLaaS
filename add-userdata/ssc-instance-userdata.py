@@ -83,8 +83,8 @@ print "Creating instance worker ... "
 instance_worker = nova.servers.create(name="acc3-worker", image=image, flavor=flavor, userdata=userdata_worker, nics=nics,security_groups=secgroups)
 #instance_worker = nova.servers.create(name="acc3-worker", image=snapshot_worker, flavor=flavor, userdata=userdata_worker, nics=nics,security_groups=secgroups)
 inst_status_worker = instance_worker.status
-print "waiting for 5 seconds.. "
-time.sleep(5)
+print "waiting for 10 seconds.. "
+time.sleep(10)
 
 while inst_status_master == 'BUILD' or inst_status_worker == 'BUILD':
     print "Instance: "+instance_master.name+" is in "+inst_status_master+" state"
@@ -106,8 +106,8 @@ print "Creating instance ansible ... "
 instance_ansible = nova.servers.create(name="acc3-ansible", image=snapshot, flavor=flavor, userdata=userdata_ansible, nics=nics,security_groups=secgroups)
 #instance_ansible = nova.servers.create(name="acc3-ansible", image=snapshot_ansible, flavor=flavor, userdata=userdata_ansible, nics=nics,security_groups=secgroups)
 inst_status_ansible = instance_ansible.status
-print "waiting for 5 seconds.. "
-time.sleep(5)
+print "waiting for 10 seconds.. "
+time.sleep(10)
 
 while inst_status_ansible == 'BUILD':
     print "Instance: "+instance_ansible.name+" is in "+inst_status_ansible+" state, sleeping for 5 seconds more..."

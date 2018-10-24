@@ -88,4 +88,4 @@ runcmd:
  - echo [sparkworker] | sudo tee -a /etc/ansible/hosts
  - echo sparkworker1 ansible_connection=ssh ansible_user=ubuntu | sudo tee -a /etc/ansible/hosts
  - cd /home/ubuntu/QTLaaS
- - ansible-playbook -s spark_deployment.yml
+ - ansible-playbook -s --private-key /home/ubuntu/.ssh/id_rsa spark_deployment.yml
