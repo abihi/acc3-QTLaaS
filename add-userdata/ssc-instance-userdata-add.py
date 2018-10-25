@@ -1,5 +1,5 @@
 # http://docs.openstack.org/developer/python-novaclient/ref/v2/servers.html
-import time, os, sys
+import time, os, sys, subprocess
 import inspect
 from os import environ as env
 
@@ -120,3 +120,5 @@ for line in inputfile:
     write_file.write(line)
 
 write_file.close()
+
+subprocess.call("ansible-commands.sh")
