@@ -31,18 +31,29 @@ sess = session.Session(auth=auth)
 nova = client.Client('2.1', session=sess)
 print "user authorization completed."
 
-#Check if initial setup exists
-instance_ansible = nova.servers.get("acc3-ansible-op")
-instance_master = nova.servers.get("acc3-master-op")
-instance_worker = nova.servers.get("acc3-worker-op")
+servers = nova.servers.list()
 
-if instance_ansible.status != 'ACTIVE':
+ansible_found = False
+master_found = False
+worker_found = False
+
+for server in servers:
+  if server.name == "acc3-ansible-op":
+        ansible_found = True
+  if server.name == "acc3-master-op":
+        master_found = True
+  if server.name == "acc3-worker-op":
+        worker_found = True
+
+#Check if initial setup exists
+if ansible_found != True:
     sys.exit("Error: ansible node not active!")
-if instance_master.status != 'ACTIVE':
+if master_found != True:
     sys.exit("Error: master node not active!")
-if instance_worker.status != 'ACTIVE':
+if worker_found != True:
     sys.exit("Error: worker node not active!")
 
+snapshot_worker = nova.glance.find_image(snapshot_name_worker)
 flavor = nova.flavors.find(name=flavor)
 
 if private_net != None:
@@ -61,10 +72,18 @@ else:
 secgroups = ['default']
 
 n = 1
-worker_name = "acc3-worker"+n+"-op"
-while nova.servers.get(worker_name) != None:
-    n++
-    worker_name = "acc3-worker"+n+"-op"
+worker_name = "acc3-worker"+str(n)+"-op"
+worker_newname_found = False
+while worker_newname_found != True:
+    local_found = False
+    for server in servers:
+        if server.name == worker_name:
+           local_found = True
+    if local_found:
+        n = n + 1
+        worker_name = "acc3-worker"+str(n)+"-op"
+    else:
+        worker_newname_found = True
 
 print "Creating instance worker ... "
 instance_worker = nova.servers.create(name=worker_name, image=snapshot_worker, flavor=flavor, userdata=userdata_worker, nics=nics,security_groups=secgroups)
