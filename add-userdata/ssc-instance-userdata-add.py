@@ -97,6 +97,26 @@ while inst_status_worker == 'BUILD':
     instance_worker = nova.servers.get(instance_worker.id)
     inst_status_worker = instance_worker.status
 
-instance_worker_IPhost = instance_worker.name +" "+ str(instance_worker.networks['SNIC 2018/10-30 Internal IPv4 Network'][0])
+instance_worker_ip = str(instance_worker.networks['SNIC 2018/10-30 Internal IPv4 Network'][0])
+
 print "Instance: "+instance_worker.name+" is in "+inst_status_worker+" state"
-print instance_worker_IPhost
+print instance_worker_ip
+
+with open('/home/ubuntu/hosts', "a") as hosts_file:
+    hosts_file.write("\n")
+    hosts_file.write(instance_worker_ip + " " + instance_worker.name + "\n")
+
+with open('/home/ubuntu/ansible-hosts', "a") as ansible_file:
+    ansible_file.write("\n")
+    ansible_file.write("sparkworker"+ str(n) + " ansible_connection=ssh ansible_user=ubuntu" + "\n")
+
+configString = "[configNode]"
+inputfile = open('/home/ubuntu/ansible-hosts', 'r').readlines()
+write_file = open('/home/ubuntu/ansible-hosts', 'w')
+for line in inputfile:
+    if configString in line:
+        new_line = "sparkworker"+ str(n) + " ansible_ssh_host=" + instance_worker_ip
+        write_file.write(new_line + "\n")
+    write_file.write(line)
+
+write_file.close()
