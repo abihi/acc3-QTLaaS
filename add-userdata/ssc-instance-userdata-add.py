@@ -97,11 +97,6 @@ while inst_status_worker == 'BUILD':
     instance_worker = nova.servers.get(instance_worker.id)
     inst_status_worker = instance_worker.status
 
-servers = nova.servers.list()
-print servers
-instance_worker_ip = ""
-for server in servers:
-    if server.name == instance_worker.name:
-        instance_worker_ip = server.ip
-
-print "Instance: "+ instance_worker.name +" has IP: "+ instance_worker_ip
+instance_worker_IPhost = instance_worker.name +" "+ str(instance_worker.networks['SNIC 2018/10-30 Internal IPv4 Network'][0])
+print "Instance: "+instance_worker.name+" is in "+inst_status_worker+" state"
+print instance_worker_IPhost
