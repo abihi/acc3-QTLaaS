@@ -76,7 +76,7 @@ print "Creating instance master ... "
 instance_master = nova.servers.create(name="acc3-master-op", image=snapshot_master, flavor=flavor, userdata=userdata_master, nics=nics,security_groups=secgroups_master)
 inst_status_master = instance_master.status
 print "Creating instance worker ... "
-instance_worker = nova.servers.create(name="acc3-worker-op", image=snapshot_worker, flavor=flavor, userdata=userdata_worker, nics=nics,security_groups=secgroups)
+instance_worker = nova.servers.create(name="acc3-worker1-op", image=snapshot_worker, flavor=flavor, userdata=userdata_worker, nics=nics,security_groups=secgroups)
 inst_status_worker = instance_worker.status
 print "waiting for 5 seconds.. "
 time.sleep(5)

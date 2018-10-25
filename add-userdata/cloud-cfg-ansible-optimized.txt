@@ -68,7 +68,7 @@ runcmd:
 
  - ansibleIPhost=$(openstack server list --name acc3-ansible-op -c Networks -f value | awk '{ split($5, v, "=");split(v[2],x,","); print x[1], "acc3-ansible-op"}')
  - masterIPhost=$(openstack server list --name acc3-master-op -c Networks -f value | awk '{ split($5, v, "=");split(v[2],x,","); print x[1], "acc3-master-op"}')
- - workerIPhost=$(openstack server list --name acc3-worker-op -c Networks -f value | awk '{ split($5, v, "=");split(v[2],x,","); print x[1], "acc3-worker-op"}')
+ - workerIPhost=$(openstack server list --name acc3-worker1-op -c Networks -f value | awk '{ split($5, v, "=");split(v[2],x,","); print x[1], "acc3-worker1-op"}')
  - echo $ansibleIPhost | sudo tee -a /etc/hosts
  - echo $masterIPhost | sudo tee -a /etc/hosts
  - echo $workerIPhost | sudo tee -a /etc/hosts
