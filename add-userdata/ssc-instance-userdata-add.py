@@ -60,8 +60,11 @@ else:
 
 secgroups = ['default']
 
-n = 2
+n = 1
 worker_name = "acc3-worker"+n+"-op"
+while nova.servers.get(worker_name) != None:
+    n++
+    worker_name = "acc3-worker"+n+"-op"
 
 print "Creating instance worker ... "
 instance_worker = nova.servers.create(name=worker_name, image=snapshot_worker, flavor=flavor, userdata=userdata_worker, nics=nics,security_groups=secgroups)
