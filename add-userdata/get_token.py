@@ -3,7 +3,6 @@ file_lines = file.readlines()
 tokenStr = "token.stdout_lines"
 for x in range(len(file_lines)):
     if tokenStr in file_lines[x]:
-        token = file_lines[x+1].split('\\')[3]
+        token = file_lines[x+4].split('\\')[3]
         print token[1:len(token)]
 	break
-
