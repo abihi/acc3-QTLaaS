@@ -91,6 +91,3 @@ runcmd:
 
  - scp -i /home/ubuntu/.ssh/id_rsa /etc/hosts ubuntu@130.238.29.113:~/
  - scp -i /home/ubuntu/.ssh/id_rsa /etc/ansible/hosts ubuntu@130.238.29.113:~/ansible-hosts
-
- - cd /home/ubuntu/QTLaaS
- - ansible-playbook -s --private-key /home/ubuntu/.ssh/id_rsa spark_deployment.yml

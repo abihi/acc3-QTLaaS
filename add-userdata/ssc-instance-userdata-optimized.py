@@ -33,7 +33,7 @@ sess = session.Session(auth=auth)
 nova = client.Client('2.1', session=sess)
 print "user authorization completed."
 
-floating_ip = nova.floating_ips.create(nova.floating_ip_pools.list()[0].name)
+floating_ip = nova.floating_ips.list()[0]
 if floating_ip.ip != None:
     print "floating_ip creation completed."
 else:
@@ -112,3 +112,7 @@ while inst_status_ansible == 'BUILD':
     inst_status_ansible = instance_ansible.status
 
 print "Instance: "+ instance_ansible.name +" is in "+ inst_status_ansible +" state"
+
+print "Running commands on " + instance_ansible.name 
+time.sleep(60)
+subprocess.call("/home/ubuntu/acc3-QTLaaS/add-userdata/ansible-initial-setup.sh")
