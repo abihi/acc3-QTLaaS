@@ -1,26 +1,51 @@
-ok: [sparkmaster] => (item=pbdZMQ)
-ok: [ansible-node] => (item=evaluate)
+sudo: unable to resolve host acc3-flask
+StrictHostKeyChecking no
+sudo: unable to resolve host acc3-flask
+Warning: Permanently added '192.168.1.40' (RSA) to the list of known hosts.
+[DEPRECATION WARNING]: The sudo command line option has been deprecated in 
+favor of the "become" command line arguments. This feature will be removed in 
+version 2.9. Deprecation warnings can be disabled by setting 
+deprecation_warnings=False in ansible.cfg.
+ [WARNING]: Found both group and host with same name: sparkmaster
+
+PLAY [all] *********************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [sparkmaster]
+ok: [sparkworker1]
+ok: [ansible-node]
+
+TASK [R  spark integration] ****************************************************
+changed: [sparkmaster] => (item=rzmq)
+changed: [sparkworker1] => (item=rzmq)
+ok: [sparkmaster] => (item=repr)
+ok: [sparkmaster] => (item=evaluate)
+changed: [ansible-node] => (item=rzmq)
+ok: [sparkmaster] => (item=crayon)
 changed: [sparkworker1] => (item=repr)
-ok: [sparkmaster] => (item=devtools)
-ok: [ansible-node] => (item=crayon)
-ok: [sparkmaster] => (item=uuid)
+ok: [sparkmaster] => (item=pbdZMQ)
 ok: [sparkworker1] => (item=evaluate)
-ok: [sparkmaster] => (item=digest)
+ok: [sparkmaster] => (item=devtools)
 ok: [sparkworker1] => (item=crayon)
+changed: [ansible-node] => (item=repr)
+ok: [sparkmaster] => (item=uuid)
+ok: [ansible-node] => (item=evaluate)
+ok: [sparkmaster] => (item=digest)
+ok: [ansible-node] => (item=crayon)
 ok: [sparkmaster] => (item=IRkernel)
-changed: [ansible-node] => (item=pbdZMQ)
-ok: [sparkmaster] => (item=IRdisplay)
-ok: [ansible-node] => (item=devtools)
-ok: [ansible-node] => (item=uuid)
 changed: [sparkworker1] => (item=pbdZMQ)
-ok: [ansible-node] => (item=digest)
+ok: [sparkmaster] => (item=IRdisplay)
 ok: [sparkworker1] => (item=devtools)
 ok: [sparkworker1] => (item=uuid)
-changed: [ansible-node] => (item=IRkernel)
+changed: [ansible-node] => (item=pbdZMQ)
+ok: [ansible-node] => (item=devtools)
 ok: [sparkworker1] => (item=digest)
-changed: [ansible-node] => (item=IRdisplay)
+ok: [ansible-node] => (item=uuid)
+ok: [ansible-node] => (item=digest)
 changed: [sparkworker1] => (item=IRkernel)
+changed: [ansible-node] => (item=IRkernel)
 changed: [sparkworker1] => (item=IRdisplay)
+changed: [ansible-node] => (item=IRdisplay)
 
 PLAY [sparkmaster] *************************************************************
 
@@ -28,13 +53,16 @@ TASK [Gathering Facts] *********************************************************
 ok: [sparkmaster]
 
 TASK [install jupyter] *********************************************************
-[DEPRECATION WARNING]: Invoking "apt" only once while using a loop via
-squash_actions is deprecated. Instead of using a loop to supply multiple items
+[DEPRECATION WARNING]: Invoking "apt" only once while using a loop via 
+squash_actions is deprecated. Instead of using a loop to supply multiple items 
 and specifying `pkg: {{item}}`, please use `pkg: [u'python-pip', u'python-dev',
- u'build-essential']` and remove the loop. This feature will be removed in
-version 2.11. Deprecation warnings can be disabled by setting
+ u'build-essential']` and remove the loop. This feature will be removed in 
+version 2.11. Deprecation warnings can be disabled by setting 
 deprecation_warnings=False in ansible.cfg.
 ok: [sparkmaster] => (item=[u'python-pip', u'python-dev', u'build-essential'])
+[DEPRECATION WARNING]: State 'installed' is deprecated. Using state 'present' 
+instead.. This feature will be removed in version 2.9. Deprecation warnings can
+ be disabled by setting deprecation_warnings=False in ansible.cfg.
 
 TASK [pip] *********************************************************************
 ok: [sparkmaster]
@@ -63,10 +91,10 @@ changed: [sparkmaster]
 TASK [debug] *******************************************************************
 ok: [sparkmaster] => {
     "token.stdout_lines": [
-        "  \"token\": \"7a04818ae011fd4520c83c2eb0ec77343dd977d19790c770\", ",
-        "  \"token\": \"5e4bb96ed4c31c4d43cdf88868baaab35da60a8a09fe10e1\", ",
-        "  \"token\": \"2d160d37344d4853f12ef61c7bddc3d29604b7e28c53e25d\", ",
-        "  \"token\": \"5f4f44b30fd291686d3f763fd046ace3e1e848258ee931af\", "
+        "  \"token\": \"5e4bb96ed4c31c4d43cdf88868baaab35da60a8a09fe10e1\", ", 
+        "  \"token\": \"2d160d37344d4853f12ef61c7bddc3d29604b7e28c53e25d\", ", 
+        "  \"token\": \"5f4f44b30fd291686d3f763fd046ace3e1e848258ee931af\", ", 
+        "  \"token\": \"f42d3cad805eb46ef3751c510b8f817ec765bc0bb31da06d\", "
     ]
 }
 
@@ -89,3 +117,27 @@ changed: [sparkworker1] => (item=sysctl -p)
 TASK [start spark worker process] **********************************************
 changed: [sparkworker1]
 
+PLAY RECAP *********************************************************************
+ansible-node               : ok=2    changed=1    unreachable=0    failed=0   
+sparkmaster                : ok=15   changed=9    unreachable=0    failed=0   
+sparkworker1               : ok=5    changed=3    unreachable=0    failed=0   
+
+user authorization completed.
+floating_ip creation completed.
+Creating instance master ... 
+Creating instance worker ... 
+waiting for 5 seconds.. 
+Instance: acc3-master-op is in BUILD state
+Instance: acc3-worker1-op is in BUILD state, sleeping for 5 seconds more...
+Instance: acc3-master-op is in BUILD state
+Instance: acc3-worker1-op is in BUILD state, sleeping for 5 seconds more...
+Instance: acc3-master-op is in ACTIVE state
+Added floating ip: 130.238.28.245 to acc3-master-op
+Instance: acc3-worker1-op is in ACTIVE state
+Creating instance ansible ... 
+waiting for 5 seconds.. 
+Instance: acc3-ansible-op is in BUILD state, sleeping for 5 seconds more...
+Instance: acc3-ansible-op is in BUILD state, sleeping for 5 seconds more...
+Instance: acc3-ansible-op is in BUILD state, sleeping for 5 seconds more...
+Instance: acc3-ansible-op is in ACTIVE state
+Running commands on acc3-ansible-op

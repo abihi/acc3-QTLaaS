@@ -114,5 +114,5 @@ while inst_status_ansible == 'BUILD':
 print "Instance: "+ instance_ansible.name +" is in "+ inst_status_ansible +" state"
 
 print "Running commands on " + instance_ansible.name
-time.sleep(20)
+time.sleep(60)
 subprocess.call("/home/ubuntu/acc3-QTLaaS/add-userdata/ansible-initial-setup.sh")
