@@ -17,7 +17,7 @@ snapshot_name_ansible = "IMPORTANT-acc3-ansible-full"
 snapshot_name_master  = "IMPORTANT-acc3-master-full"
 snapshot_name_worker  = "IMPORTANT-acc3-worker-full"
 
-subprocess.call("bihi-openrc.sh")
+subprocess.call("source-openrc.sh")
 
 loader = loading.get_plugin_loader('password')
 
