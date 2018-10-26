@@ -17,8 +17,6 @@ snapshot_name_ansible = "IMPORTANT-acc3-ansible-full"
 snapshot_name_master  = "IMPORTANT-acc3-master-full"
 snapshot_name_worker  = "IMPORTANT-acc3-worker-full"
 
-subprocess.call("source-openrc.sh")
-
 loader = loading.get_plugin_loader('password')
 
 auth = loader.load_from_options(auth_url=env['OS_AUTH_URL'],
@@ -44,7 +42,7 @@ for server in servers:
         ansible_found = True
   if server.name == "acc3-master-op":
         master_found = True
-  if server.name == "acc3-worker-op":
+  if server.name == "acc3-worker1-op":
         worker_found = True
 
 #Check if initial setup exists
@@ -123,4 +121,4 @@ for line in inputfile:
 
 write_file.close()
 
-subprocess.call("ansible-commands.sh")
+subprocess.call("/home/ubuntu/acc3-QTLaaS/add-userdata/ansible-commands.sh")

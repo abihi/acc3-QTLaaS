@@ -1,5 +1,5 @@
 # http://docs.openstack.org/developer/python-novaclient/ref/v2/servers.html
-import time, os, sys
+import time, os, sys, subprocess
 import inspect
 from os import environ as env
 
@@ -16,8 +16,6 @@ image_name = "Ubuntu 16.04 LTS (Xenial Xerus) - latest"
 snapshot_name_ansible = "IMPORTANT-acc3-ansible-full"
 snapshot_name_master  = "IMPORTANT-acc3-master-full"
 snapshot_name_worker  = "IMPORTANT-acc3-worker-full"
-
-subprocess.call("source-openrc.sh")
 
 loader = loading.get_plugin_loader('password')
 
@@ -73,8 +71,8 @@ write_file.close()
 inputfile = open('/home/ubuntu/ansible-hosts', 'r').readlines()
 write_file = open('/home/ubuntu/ansible-hosts', 'w')
 for line in inputfile:
-    if "sparkworker"+str(n) not in line:
+    if "sparkworker"+str(n-1) not in line:
         write_file.write(line)
 write_file.close()
 
-subprocess.call("ansible-commands.sh")
+subprocess.call("/home/ubuntu/acc3-QTLaaS/add-userdata/ansible-commands.sh")
