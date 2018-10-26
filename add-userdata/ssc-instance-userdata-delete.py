@@ -33,7 +33,7 @@ print "user authorization completed."
 
 servers = nova.servers.list()
 
-n = 1
+n = 2
 worker_name = "acc3-worker"+str(n)+"-op"
 worker_newname_found = False
 while worker_newname_found != True:
