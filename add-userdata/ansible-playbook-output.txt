@@ -1,0 +1,91 @@
+ok: [sparkmaster] => (item=pbdZMQ)
+ok: [ansible-node] => (item=evaluate)
+changed: [sparkworker1] => (item=repr)
+ok: [sparkmaster] => (item=devtools)
+ok: [ansible-node] => (item=crayon)
+ok: [sparkmaster] => (item=uuid)
+ok: [sparkworker1] => (item=evaluate)
+ok: [sparkmaster] => (item=digest)
+ok: [sparkworker1] => (item=crayon)
+ok: [sparkmaster] => (item=IRkernel)
+changed: [ansible-node] => (item=pbdZMQ)
+ok: [sparkmaster] => (item=IRdisplay)
+ok: [ansible-node] => (item=devtools)
+ok: [ansible-node] => (item=uuid)
+changed: [sparkworker1] => (item=pbdZMQ)
+ok: [ansible-node] => (item=digest)
+ok: [sparkworker1] => (item=devtools)
+ok: [sparkworker1] => (item=uuid)
+changed: [ansible-node] => (item=IRkernel)
+ok: [sparkworker1] => (item=digest)
+changed: [ansible-node] => (item=IRdisplay)
+changed: [sparkworker1] => (item=IRkernel)
+changed: [sparkworker1] => (item=IRdisplay)
+
+PLAY [sparkmaster] *************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [sparkmaster]
+
+TASK [install jupyter] *********************************************************
+[DEPRECATION WARNING]: Invoking "apt" only once while using a loop via
+squash_actions is deprecated. Instead of using a loop to supply multiple items
+and specifying `pkg: {{item}}`, please use `pkg: [u'python-pip', u'python-dev',
+ u'build-essential']` and remove the loop. This feature will be removed in
+version 2.11. Deprecation warnings can be disabled by setting
+deprecation_warnings=False in ansible.cfg.
+ok: [sparkmaster] => (item=[u'python-pip', u'python-dev', u'build-essential'])
+
+TASK [pip] *********************************************************************
+ok: [sparkmaster]
+
+TASK [pip] *********************************************************************
+ok: [sparkmaster]
+
+TASK [adding paths] ************************************************************
+changed: [sparkmaster]
+
+TASK [source bashrc] ***********************************************************
+changed: [sparkmaster]
+
+TASK [add IRKernel] ************************************************************
+changed: [sparkmaster]
+
+TASK [start IRKernel] **********************************************************
+changed: [sparkmaster]
+
+TASK [start jupyter] ***********************************************************
+changed: [sparkmaster]
+
+TASK [jupyter server token] ****************************************************
+changed: [sparkmaster]
+
+TASK [debug] *******************************************************************
+ok: [sparkmaster] => {
+    "token.stdout_lines": [
+        "  \"token\": \"7a04818ae011fd4520c83c2eb0ec77343dd977d19790c770\", ",
+        "  \"token\": \"5e4bb96ed4c31c4d43cdf88868baaab35da60a8a09fe10e1\", ",
+        "  \"token\": \"2d160d37344d4853f12ef61c7bddc3d29604b7e28c53e25d\", ",
+        "  \"token\": \"5f4f44b30fd291686d3f763fd046ace3e1e848258ee931af\", "
+    ]
+}
+
+TASK [disable IPv6] ************************************************************
+changed: [sparkmaster] => (item=echo "net.ipv6.conf.all.disable_ipv6 = 1\nnet.ipv6.conf.default.disable_ipv6 = 1\nnet.ipv6.conf.lo.disable_ipv6 = 1" >> /etc/sysctl.conf)
+changed: [sparkmaster] => (item=sysctl -p)
+
+TASK [start spark master process] **********************************************
+changed: [sparkmaster]
+
+PLAY [sparkworker] *************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [sparkworker1]
+
+TASK [disable IPv6] ************************************************************
+changed: [sparkworker1] => (item=echo "net.ipv6.conf.all.disable_ipv6 = 1\nnet.ipv6.conf.default.disable_ipv6 = 1\nnet.ipv6.conf.lo.disable_ipv6 = 1" >> /etc/sysctl.conf)
+changed: [sparkworker1] => (item=sysctl -p)
+
+TASK [start spark worker process] **********************************************
+changed: [sparkworker1]
+
