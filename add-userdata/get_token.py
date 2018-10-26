@@ -1,3 +1,4 @@
+#python ssc-instance-userdata-optimized.py 2>&1 | tee ansible-playbook-output.txt
 file = open('ansible-playbook-output.txt', 'r')
 file_lines = file.readlines()
 tokenStr = "token.stdout_lines"
