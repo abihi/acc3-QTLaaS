@@ -101,6 +101,7 @@ instance_worker_ip = str(instance_worker.networks['SNIC 2018/10-30 Internal IPv4
 
 print "Instance: "+instance_worker.name+" is in "+inst_status_worker+" state"
 print instance_worker_ip
+time.sleep(10)
 
 with open('/home/ubuntu/hosts', "a") as hosts_file:
     hosts_file.write("\n")
@@ -121,4 +122,4 @@ for line in inputfile:
 
 write_file.close()
 
-subprocess.call("/home/ubuntu/acc3-QTLaaS/add-userdata/ansible-commands.sh")
+subprocess.call("/home/ubuntu/acc3-QTLaaS/add-userdata/ansible-commands-add.sh")
