@@ -61,3 +61,19 @@ time.sleep(5)
 
 
 print "Instance: "+ worker_name +" is deleted."
+
+inputfile = open('/home/ubuntu/hosts', 'r').readlines()
+write_file = open('/home/ubuntu/hosts', 'w')
+for line in inputfile:
+    if worker_name not in line:
+        write_file.write(line)
+write_file.close()
+
+inputfile = open('/home/ubuntu/ansible-hosts', 'r').readlines()
+write_file = open('/home/ubuntu/ansible-hosts', 'w')
+for line in inputfile:
+    if "sparkworker"+str(n) not in line:
+        write_file.write(line)
+write_file.close()
+
+subprocess.call("ansible-commands.sh")
