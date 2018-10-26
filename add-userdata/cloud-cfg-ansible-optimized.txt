@@ -76,6 +76,7 @@ runcmd:
  - masterIP=$(echo $masterIPhost | awk '{split($1, v, " ");print v[1]}')
  - workerIP=$(echo $workerIPhost | awk '{split($1, v, " ");print v[1]}')
 
+ - sudo chown ubuntu:ubuntu /etc/hosts
  - sudo chown ubuntu:ubuntu /etc/ansible/hosts
  - cat /dev/null > /etc/ansible/hosts
  - echo ansible-node ansible_ssh_host=$ansibleIP | sudo tee -a /etc/ansible/hosts
