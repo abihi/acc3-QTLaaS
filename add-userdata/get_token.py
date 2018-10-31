@@ -7,3 +7,9 @@ for x in range(len(file_lines)):
         token = file_lines[x+4].split('\\')[3]
         print token[1:len(token)]
 	break
+floatingipStr = "Added floating ip:"
+for x in range(len(file_lines)):
+    if floatingipStr in file_lines[x]:
+        floatingip = file_lines[x].split(' ')[4]
+        print floatingip
+        break
