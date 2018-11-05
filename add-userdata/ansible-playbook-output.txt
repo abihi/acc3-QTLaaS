@@ -1,7 +1,21 @@
 sudo: unable to resolve host acc3-flask
 StrictHostKeyChecking no
 sudo: unable to resolve host acc3-flask
-Warning: Permanently added '192.168.1.54' (RSA) to the list of known hosts.
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+Someone could be eavesdropping on you right now (man-in-the-middle attack)!
+It is also possible that a host key has just been changed.
+The fingerprint for the RSA key sent by the remote host is
+SHA256:vlhpm6bHtTkqgpPGt6UQxD9F90P0c5az0t80q8ACf4o.
+Please contact your system administrator.
+Add correct host key in /home/ubuntu/.ssh/known_hosts to get rid of this message.
+Offending ECDSA key in /home/ubuntu/.ssh/known_hosts:22
+  remove with:
+  ssh-keygen -f "/home/ubuntu/.ssh/known_hosts" -R 192.168.1.64
+Password authentication is disabled to avoid man-in-the-middle attacks.
+Keyboard-interactive authentication is disabled to avoid man-in-the-middle attacks.
 [DEPRECATION WARNING]: The sudo command line option has been deprecated in 
 favor of the "become" command line arguments. This feature will be removed in 
 version 2.9. Deprecation warnings can be disabled by setting 
@@ -16,35 +30,35 @@ ok: [sparkmaster]
 ok: [sparkworker1]
 
 TASK [R  spark integration] ****************************************************
-changed: [sparkworker1] => (item=rzmq)
 changed: [sparkmaster] => (item=rzmq)
+changed: [sparkworker1] => (item=rzmq)
 changed: [ansible-node] => (item=rzmq)
 ok: [sparkmaster] => (item=repr)
-changed: [sparkworker1] => (item=repr)
 ok: [sparkmaster] => (item=evaluate)
-ok: [sparkworker1] => (item=evaluate)
+changed: [sparkworker1] => (item=repr)
 changed: [ansible-node] => (item=repr)
 ok: [sparkmaster] => (item=crayon)
+ok: [sparkworker1] => (item=evaluate)
 ok: [sparkworker1] => (item=crayon)
-ok: [sparkmaster] => (item=pbdZMQ)
 ok: [ansible-node] => (item=evaluate)
+ok: [sparkmaster] => (item=pbdZMQ)
+ok: [ansible-node] => (item=crayon)
 ok: [sparkmaster] => (item=devtools)
 changed: [sparkworker1] => (item=pbdZMQ)
-ok: [ansible-node] => (item=crayon)
 ok: [sparkmaster] => (item=uuid)
 ok: [sparkworker1] => (item=devtools)
-ok: [sparkmaster] => (item=digest)
 ok: [sparkworker1] => (item=uuid)
-ok: [sparkmaster] => (item=IRkernel)
-ok: [sparkworker1] => (item=digest)
+ok: [sparkmaster] => (item=digest)
 changed: [ansible-node] => (item=pbdZMQ)
-ok: [sparkmaster] => (item=IRdisplay)
-changed: [sparkworker1] => (item=IRkernel)
 ok: [ansible-node] => (item=devtools)
+ok: [sparkworker1] => (item=digest)
+ok: [sparkmaster] => (item=IRkernel)
 ok: [ansible-node] => (item=uuid)
-changed: [sparkworker1] => (item=IRdisplay)
+ok: [sparkmaster] => (item=IRdisplay)
 ok: [ansible-node] => (item=digest)
+changed: [sparkworker1] => (item=IRkernel)
 changed: [ansible-node] => (item=IRkernel)
+changed: [sparkworker1] => (item=IRdisplay)
 changed: [ansible-node] => (item=IRdisplay)
 
 PLAY [sparkmaster] *************************************************************
@@ -94,7 +108,7 @@ ok: [sparkmaster] => {
         "  \"token\": \"5e4bb96ed4c31c4d43cdf88868baaab35da60a8a09fe10e1\", ", 
         "  \"token\": \"2d160d37344d4853f12ef61c7bddc3d29604b7e28c53e25d\", ", 
         "  \"token\": \"5f4f44b30fd291686d3f763fd046ace3e1e848258ee931af\", ", 
-        "  \"token\": \"dd8c13081bd531f6ec027e428d3630a33b96bd3231c85b13\", "
+        "  \"token\": \"5f5d5f6024ebb17ec5f918d9d6a6a584ac18255c0c00c4ed\", "
     ]
 }
 
@@ -136,7 +150,6 @@ Added floating ip: 130.238.28.245 to acc3-master-op
 Instance: acc3-worker1-op is in ACTIVE state
 Creating instance ansible ... 
 waiting for 5 seconds.. 
-Instance: acc3-ansible-op is in BUILD state, sleeping for 5 seconds more...
 Instance: acc3-ansible-op is in BUILD state, sleeping for 5 seconds more...
 Instance: acc3-ansible-op is in BUILD state, sleeping for 5 seconds more...
 Instance: acc3-ansible-op is in ACTIVE state

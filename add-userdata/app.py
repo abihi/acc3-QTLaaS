@@ -40,12 +40,14 @@ def get_token():
         if floatingipStr in file_lines[x]:
 	   floatingip = file_lines[x].split(' ')[3]
            sparkaddress = "Spark address: http://"+ floatingip + ":60060"
+           print sparkaddress
            break
     tokenStr = "token.stdout_lines"
     for x in range(len(file_lines)):
         if tokenStr in file_lines[x]:
 	   token = file_lines[x+4].split('\\')[3]
            finaltoken = "Login token: " + token[1:len(token)]
+	   print finaltoken
            break
     return render_template('setupdone.html', title='Add or Remove', sparktoken = finaltoken, sparkpage = sparkaddress)
 
