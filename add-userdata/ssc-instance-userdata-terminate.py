@@ -36,15 +36,15 @@ servers = nova.servers.list()
 for server in servers:
     if server.name == "acc3-master-op":
        instance_worker = server
-       print "Deleting instance " + instance_worker
+       print "Deleting instance " + instance_worker.name
        nova.servers.delete(instance_worker)
     if "acc3-worker" in server.name:
        instance_worker = server
-       print "Deleting instance " + instance_worker
+       print "Deleting instance " + instance_worker.name
        nova.servers.delete(instance_worker)
     if server.name == "acc3-ansible-op":
        instance_worker = server
-       print "Deleting instance " + instance_worker
+       print "Deleting instance " + instance_worker.name
        nova.servers.delete(instance_worker)
 
 inputfile = open('/home/ubuntu/hosts', 'r').readlines()
