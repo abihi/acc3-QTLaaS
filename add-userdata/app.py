@@ -49,7 +49,7 @@ def get_token():
     for x in range(len(file_lines)):
         if floatingipStr in file_lines[x]:
             floatingip = file_lines[x].split(' ')[3]
-            spark_adress = "Spark address: " "http://" + floatingip + ":60060"
+            spark_adress = "http://" + floatingip + ":60060"
             break
 
     tokenStr = "token.stdout_lines"
