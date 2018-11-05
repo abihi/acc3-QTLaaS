@@ -32,6 +32,12 @@ def delete_worker():
     return render_template('setupdone.html', title='Add or Remove')
 
 
+@app.route('/removeeverything', methods=['GET', 'POST'])
+def delete_all():
+    subprocess.call("/home/ubuntu/acc3-QTLaaS/add-userdata/remove-all.sh")
+    return render_template('setupdone.html', title='Add or Remove')
+
+
 @app.route('/gettoken', methods=['GET', 'POST'])
 def get_token():
     file = open('ansible-playbook-output.txt', 'r')
