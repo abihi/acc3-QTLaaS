@@ -1,4 +1,24 @@
 {% extends "layout.html" %}
 {% block content %}
-    <button href="{{url_for('initial_setup') }}">set cluster</button>
+
+    <div class="card" style="
+                        margin: 0 auto; /* Added */
+                        float: none; /* Added */
+                        margin-bottom: 10px; /* Added */
+                        text-align: center;
+                        ">
+            <img class="card-img-top" src="{{ url_for('static', filename='images/people.png') }}" alt="Could not find image">
+              <div class="card-body">
+                <h5 class="card-title">Cluster setup</h5>
+                <p class="card-text">Welcome to the ACC3 project choose one of the following:</p>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><a href="{{url_for('initial_setup') }}">set cluster</a></li>
+                    <li class="list-group-item"><a href="{{url_for('setup_done') }}">Already have a cluster?</a></li>
+
+                  </ul>
+              </div>
+            </div>
+
+
+
 {% endblock content %}

@@ -2,9 +2,9 @@
 {% block content %}
 
     <div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-6">
-            <div class="card" style="width: 18rem;">
+    <div class="row valign-wrapper">
+        <div class="col-sm-6 valign">
+            <div class="card" style="width: 18rem; margin-left: auto">
               <div class="card-body">
                 <h5 class="card-title">Manage cluster</h5>
                 <p class="card-text">Manage your Spark cluster by following options:</p>
@@ -17,17 +17,17 @@
             </div>
         </div>
         <div class="col-sm-6">
-            <div class="card" style="width: 18rem;">
+            <div class="card" style="width: 18rem; margin-right: auto">
                 <img class="card-img-top" src="{{ url_for('static', filename='images/27_file.png') }}" alt="Could not find image">
               <div class="card-body">
                 <h5 class="card-title">Notebook stuff</h5>
                 <p class="card-text">Manage your Spark cluster by following options:</p>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">
-                        <textarea id="ta" placeholder="Token loads here..."></textarea>
+
                         <a href="{{ url_for('get_token') }}" class="btn btn-primary" id="lt">Load token</a>
                     </li>
-                    <li class="list-group-item"><a href="{{ url_for('setup_done') }}"  class="btn btn-primary" id="sm">To Spark master</a></li>
+                    <li class="list-group-item"><a href="{{ adress }}" target="_blank" class="btn btn-primary" id="sm">To Spark master</a></li>
                 </ul>
               </div>
             </div>
@@ -40,7 +40,8 @@
     <script >
 
         $('#lt').on("click", function() {
-            $('#ta').val("{{ token }}")
+            alert("Copy this token for notebook access:  '{{ token }}'")
+
         });
 
     </script>
