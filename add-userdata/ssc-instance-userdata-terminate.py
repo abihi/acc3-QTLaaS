@@ -35,26 +35,17 @@ servers = nova.servers.list()
 
 for server in servers:
     if server.name == "acc3-master-op":
-      instance_worker = server
-      print instance_worker
-      print "Deleting instance worker ... "
-      nova.servers.delete(instance_worker)
-      print "waiting for 5 seconds.. "
-      time.sleep(5)
+       instance_worker = server
+       print "Deleting instance " + instance_worker
+       nova.servers.delete(instance_worker)
     if "acc3-worker" in server.name:
        instance_worker = server
-       print instance_worker
-       print "Deleting instance worker ... "
+       print "Deleting instance " + instance_worker
        nova.servers.delete(instance_worker)
-       print "waiting for 5 seconds.. "
-       time.sleep(5)
     if server.name == "acc3-ansible-op":
        instance_worker = server
-       print instance_worker
-       print "Deleting instance worker ... "
+       print "Deleting instance " + instance_worker
        nova.servers.delete(instance_worker)
-       print "waiting for 5 seconds.. "
-       time.sleep(5)
 
 inputfile = open('/home/ubuntu/hosts', 'r').readlines()
 write_file = open('/home/ubuntu/hosts', 'w')
