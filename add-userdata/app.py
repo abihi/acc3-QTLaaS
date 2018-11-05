@@ -17,7 +17,6 @@ def setup_done():
 @app.route('/startcluster')
 def initial_setup():
     subprocess.call("/home/ubuntu/acc3-QTLaaS/add-userdata/start-cluster.sh")
-    get_token()
     return render_template('setupdone.html', title='Add or Remove')
 
 @app.route('/addworker')
