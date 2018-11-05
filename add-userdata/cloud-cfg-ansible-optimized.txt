@@ -1,7 +1,5 @@
 #cloud-config
 
-apt_update: false
-apt_upgrade: false
 packages:
  - build-essential
 byobu_default: system
@@ -89,5 +87,6 @@ runcmd:
  - echo [sparkworker] | sudo tee -a /etc/ansible/hosts
  - echo sparkworker1 ansible_connection=ssh ansible_user=ubuntu | sudo tee -a /etc/ansible/hosts
 
- - scp -i /home/ubuntu/.ssh/id_rsa /etc/hosts ubuntu@130.238.29.113:~/
- - scp -i /home/ubuntu/.ssh/id_rsa /etc/ansible/hosts ubuntu@130.238.29.113:~/ansible-hosts
+ - flaskFloatingIP=$(openstack server list --name acc3-flask -c Networks -f value | awk '{ split($6, v,",");print v[1]}')
+ - scp -i /home/ubuntu/.ssh/id_rsa /etc/hosts ubuntu@$flaskFloatingIP:~/
+ - scp -i /home/ubuntu/.ssh/id_rsa /etc/ansible/hosts ubuntu@$flaskFloatingIP:~/ansible-hosts
