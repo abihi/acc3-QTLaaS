@@ -35,13 +35,13 @@ servers = nova.servers.list()
 
 for server in servers:
     if server.name == "acc3-master-op":
-       instance_worker = server
-       print instance_worker
-       print "Deleting instance worker ... "
-       nova.servers.delete(instance_worker)
-       print "waiting for 5 seconds.. "
-       time.sleep(5)
-    if server.name == "acc3-worker1-op":
+      instance_worker = server
+      print instance_worker
+      print "Deleting instance worker ... "
+      nova.servers.delete(instance_worker)
+      print "waiting for 5 seconds.. "
+      time.sleep(5)
+    if "acc3-worker" in server.name:
        instance_worker = server
        print instance_worker
        print "Deleting instance worker ... "
