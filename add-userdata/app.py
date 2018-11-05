@@ -49,17 +49,19 @@ def get_token():
     for x in range(len(file_lines)):
         if floatingipStr in file_lines[x]:
             floatingip = file_lines[x].split(' ')[3]
-            spark_adress = "Spark address: " "http://" + floatingip + ":60060"
+            spark_adress = "http://" + floatingip + ":60060"
             break
 
     tokenStr = "token.stdout_lines"
     for x in range(len(file_lines)):
         if tokenStr in file_lines[x]:
             token = file_lines[x + 4].split('\\')[3]
-            token = token[1:len(token)]
+            token = '/?token=' + token[1:len(token)]
             break
 
-    return render_template('setupdone.html', title='Add or Remove', token=token, adress=spark_adress)
+    auto_login = spark_adress + token
+    print(auto_login)
+    return render_template('setupdone.html', title='Add or Remove', token=token, adress=spark_adress, notebook=auto_login)
 
 
 if __name__ == '__main__':

@@ -21,19 +21,22 @@
                 <img class="card-img-top" src="{{ url_for('static', filename='images/27_file.png') }}" alt="Could not find image">
               <div class="card-body">
                 <h5 class="card-title">Notebook stuff</h5>
-                <p class="card-text">Manage your Spark cluster by following options:</p>
+                <p class="card-text">Manage your Spark cluster by running the exectuing the following options:</p>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">
 
-                        <a href="{{ url_for('get_token') }}" class="btn btn-primary" id="lt">Load token</a>
+                        <a href="{{ url_for('get_token') }}" class="btn btn-primary" id="lt">1. Load token</a>
                     </li>
-                    <li class="list-group-item"><a href="{{ adress }}" target="_blank" class="btn btn-primary" id="sm">To Spark master</a></li>
+                    <li class="list-group-item"><a href="{{ notebook }}" target="_blank" class="btn btn-primary" id="sm">2. To Spark master</a></li>
                 </ul>
               </div>
             </div>
         </div>
     </div>
     </div>
+
+
+
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

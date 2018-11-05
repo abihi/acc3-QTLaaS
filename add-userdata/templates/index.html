@@ -7,18 +7,30 @@
                         margin-bottom: 10px; /* Added */
                         text-align: center;
                         ">
-            <img class="card-img-top" src="{{ url_for('static', filename='images/people.png') }}" alt="Could not find image">
+            <img id="is" class="card-img-top" src="{{ url_for('static', filename='images/people.png') }}" alt="Could not find image">
               <div class="card-body">
                 <h5 class="card-title">Cluster setup</h5>
                 <p class="card-text">Welcome to the ACC3 project choose one of the following:</p>
                   <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><a href="{{url_for('initial_setup') }}">set cluster</a></li>
-                    <li class="list-group-item"><a href="{{url_for('setup_done') }}">Already have a cluster?</a></li>
-
+                    <li class="list-group-item">
+                        <a id="sc" href="{{url_for('initial_setup') }}">set cluster</a>
+                    </li>
+                    <li id="ac" class="list-group-item"><a href="{{url_for('setup_done') }}">Already have a cluster?</a></li>
+                      <li id="info" style="visibility: hidden">Setup might take a while... you are automatically redirected when complete</li>
                   </ul>
               </div>
             </div>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+
+         $('#sc').on("click", function() {
+             $('#ac').hide();
+             $('#info').css("visibility", "visible");
+
+        });
+
+    </script>
 
 
 {% endblock content %}
