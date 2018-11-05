@@ -1,7 +1,5 @@
 #cloud-config
 
-apt_update: false
-apt_upgrade: false
 packages:
  - build-essential
 byobu_default: system
