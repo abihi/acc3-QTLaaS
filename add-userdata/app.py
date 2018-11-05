@@ -1,51 +1,60 @@
 from flask import Flask, redirect, url_for, request, render_template
 import subprocess
-#from dir import file
 
 app = Flask(__name__)
-
+app._static_folder = '../static'
 
 @app.route('/')
 def setup():
-    return render_template('index.html',title='Setup')
+    return render_template('index.html', title='Setup')
 
 
-@app.route('/setupdone',  methods=['GET','POST'])
+@app.route('/setupdone')
 def setup_done():
     return render_template('setupdone.html', title='Add or Remove')
 
-@app.route('/startcluster')
+
+@app.route('/startcluster', methods=['GET', 'POST'])
 def initial_setup():
     subprocess.call("/home/ubuntu/acc3-QTLaaS/add-userdata/start-cluster.sh")
     return render_template('setupdone.html', title='Add or Remove')
 
-@app.route('/addworker')
+
+@app.route('/addworker', methods=['GET', 'POST'])
 def add_worker():
     subprocess.call("/home/ubuntu/acc3-QTLaaS/add-userdata/add-to-cluster.sh")
     return render_template('setupdone.html', title='Add or Remove')
 
-@app.route('/removeworker')
+
+@app.route('/removeworker', methods=['GET', 'POST'])
 def delete_worker():
     subprocess.call("/home/ubuntu/acc3-QTLaaS/add-userdata/remove-from-cluster.sh")
     return render_template('setupdone.html', title='Add or Remove')
 
-@app.route('/gettoken')
+
+@app.route('/gettoken', methods=['GET', 'POST'])
 def get_token():
     file = open('ansible-playbook-output.txt', 'r')
     file_lines = file.readlines()
     floatingipStr = "Added floating ip:"
+    spark_adress = ""
+    token = ""
+
     for x in range(len(file_lines)):
         if floatingipStr in file_lines[x]:
-	   floatingip = file_lines[x].split(' ')[3]
-           print "Spark address: " "http://"+ floatingip + ":60060"
-           break
+            floatingip = file_lines[x].split(' ')[3]
+            spark_adress = "Spark address: " "http://" + floatingip + ":60060"
+            break
+
     tokenStr = "token.stdout_lines"
     for x in range(len(file_lines)):
         if tokenStr in file_lines[x]:
-	   token = file_lines[x+4].split('\\')[3]
-           print "Login token: " + token[1:len(token)]
-           break
-    return render_template('setupdone.html', title='Add or Remove')
+            token = file_lines[x + 4].split('\\')[3]
+            token = token[1:len(token)]
+            break
+
+    return render_template('setupdone.html', title='Add or Remove', token=token, adress=spark_adress)
+
 
 if __name__ == '__main__':
     app.run(debug=True)

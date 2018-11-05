@@ -1,5 +1,50 @@
 {% extends "layout.html" %}
 {% block content %}
-    <button action = "" id="ad">Add worker</button>
-    <button action = "" id="rm">Remove worker</button>
+
+    <div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card" style="width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title">Manage cluster</h5>
+                <p class="card-text">Manage your Spark cluster by following options:</p>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><a href="{{ url_for('add_worker') }}" class="btn btn-primary" id="ad">Add worker</a></li>
+                    <li class="list-group-item"><a href="{{ url_for('delete_worker') }}" class="btn btn-primary" id="rm">Remove worker</a></li>
+                    <li class="list-group-item"><a class="btn btn-danger">Delete everything!</a></li>
+                  </ul>
+              </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{{ url_for('static', filename='images/27_file.png') }}" alt="Could not find image">
+              <div class="card-body">
+                <h5 class="card-title">Notebook stuff</h5>
+                <p class="card-text">Manage your Spark cluster by following options:</p>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <textarea id="ta" placeholder="Token loads here..."></textarea>
+                        <a href="{{ url_for('get_token') }}" class="btn btn-primary" id="lt">Load token</a>
+                    </li>
+                    <li class="list-group-item"><a href="{{ url_for('setup_done') }}"  class="btn btn-primary" id="sm">To Spark master</a></li>
+                </ul>
+              </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script >
+
+        $('#lt').on("click", function() {
+            $('#ta').val("{{ token }}")
+        });
+
+    </script>
+
+
 {% endblock content %}
+
